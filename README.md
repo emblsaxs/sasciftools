@@ -19,28 +19,11 @@ or run PyMOL from command line with -d option using with the string above:
 ## Structure and content of sasCIF tools
 sasCIFtools consist of three parts:
 
-1. [sasCIFtoolbox Package](#sasciftoolbox), which contains python classes and methods for processing sasCIF and traditional SAS data files.
+1. [Standalone python scripts](#standalone-tools) command line tools, which convert sasCIF files.
 
-2. Modifed [mmCIF library](https://github.com/glenveegee/PDBeCIF) to read and write CIF files developed at EMBL-EBI by Glen van Ginkel. The library was modified for sasCIFtools to use Ordered Dictionaries instead of generic ones to preserve the order of items and data blocks in sasCIF files.
+2. [sasCIFtoolbox Package](#sasciftoolbox), which contains python classes and methods for processing sasCIF and traditional SAS data files.
 
-3. [Standalone python scripts](#standalone-tools) command line tools, which convert sasCIF files.
-
-
-###sasCIFtoolbox
-
-**sasCIFtoolbox** module include four python modules and one .ini file. Here only the general information about the models and their content is provided, the details are presented in the docstrings of the corresponding files.   
-
-* `import_tools.py`: contains two classes **sasdata** and **pdbdata**, the former is used to add small angle scattering data from .dat, .out and .fit files and the latter to add atomic coordinates from .pdb files to sasCIF files
-
-* `export_tools.py`: contains one class **sasCIFsource** to extract all types of data from the sasCIF files to corresponding data files
-
-* `cifutils.py`: contains functions to facilitate processing of sasCIF files and operation of standalone tools
-
-* `writesaxsdoc.py`: contains one class **saxsdocout** to write SAS data files in ATSAS format
-    
-* `sasCIFtools.ini`: contains path to the ATSAS python libraries if ATSAS is not installed to default location. The default location is `/usr/lib/x86_64-linux-gnu/atsas/python2.7/dist-packages/`.
-
-More details about the components of sasCIFtoolbox can be found in the scripts source code.
+3. Modifed [mmCIF library](https://github.com/glenveegee/PDBeCIF) to read and write CIF files developed at EMBL-EBI by Glen van Ginkel. The library was modified for sasCIFtools to use Ordered Dictionaries instead of generic ones to preserve the order of items and data blocks in sasCIF files.
 
 ### Standalone tools
 
@@ -81,3 +64,19 @@ All export tools except for `cif2all` have similar interface:
 	```
 
 	If no output folder is specified, then the the output data files are written to the current directory. **cif2all** names output files according to the file structure: if file has only one *MAIN* data block (the one with the scattering curve), then the .dat and .out files have name of the input sasCIF file. Otherwise for each *MAIN* data block separate files are created with names containing both filename and data block name. The .fit and .pdb files are named following the conventions described above for **cif2pdb** and **cif2fit** tools.
+
+###sasCIFtoolbox
+
+**sasCIFtoolbox** module include four python modules and one .ini file. Here only the general information about the models and their content is provided, the details are presented in the docstrings of the corresponding files.   
+
+* `import_tools.py`: contains two classes **sasdata** and **pdbdata**, the former is used to add small angle scattering data from .dat, .out and .fit files and the latter to add atomic coordinates from .pdb files to sasCIF files
+
+* `export_tools.py`: contains one class **sasCIFsource** to extract all types of data from the sasCIF files to corresponding data files
+
+* `cifutils.py`: contains functions to facilitate processing of sasCIF files and operation of standalone tools
+
+* `writesaxsdoc.py`: contains one class **saxsdocout** to write SAS data files in ATSAS format
+    
+* `sasCIFtools.ini`: contains path to the ATSAS python libraries if ATSAS is not installed to default location. The default location is `/usr/lib/x86_64-linux-gnu/atsas/python2.7/dist-packages/`.
+
+More details about the components of sasCIFtoolbox can be found in the scripts source code.
