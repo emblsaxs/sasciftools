@@ -52,8 +52,8 @@ class sasCIFsource(object):
             if '_sas_p_of_R' in sasCIFdict[data_block_id]:
                 outfile = open(sasCIFfile[0:-7] + '.out', 'w')
 
-                intensityTable = [sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['momentum_transfer'],
-                                  sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['intensity_reg']]
+                intensityTable = [sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['momentum_transfer'],
+                                  sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['intensity_reg']]
                 intensityHeader = ['S', 'I REG']
 
                 # Alignment of experimental and extrapolated intensities
@@ -112,7 +112,7 @@ class sasCIFsource(object):
                         error[firstPointIntensity:lastPointIntensity] + [' '] * tailPoints
 
                     Jreg = [' '] * firstPointExtrapolated + \
-                        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated'][
+                        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity'][
                             'intensity_reg'][firstPointExtrapolated:]
 
                     intensityTable.insert(1, Jexp)

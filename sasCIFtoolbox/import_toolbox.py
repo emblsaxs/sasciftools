@@ -180,12 +180,12 @@ class sasdata(object):
         sasCIFdict[data_block_id]['_sas_p_of_R']['P'] = p
         sasCIFdict[data_block_id]['_sas_p_of_R']['P_error'] = err
 
-        if '_sas_p_of_R_extrapolated' not in sasCIFdict[data_block_id].keys():
-            sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated'] = collections.OrderedDict()
-        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['id'] = [pr_id] * len(s_extrp)
-        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['ordinal'] = range(1, len(s_extrp) + 1)
-        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['momentum_transfer'] = s_extrp
-        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated']['intensity_reg'] = I_extrp
+        if '_sas_p_of_R_extrapolated_intensity' not in sasCIFdict[data_block_id].keys():
+            sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity'] = collections.OrderedDict()
+        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['id'] = [pr_id] * len(s_extrp)
+        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['ordinal'] = range(1, len(s_extrp) + 1)
+        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['momentum_transfer'] = s_extrp
+        sasCIFdict[data_block_id]['_sas_p_of_R_extrapolated_intensity']['intensity_reg'] = I_extrp
 
 
 class pdbdata(object):
