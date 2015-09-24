@@ -2,12 +2,11 @@
 
 import sys
 
-from sasCIFtoolbox import export_toolbox
-from sasCIFtoolbox import cifutils
-from mmCif import mmcifIO
+from sasciftools.sasCIFtoolbox import export_toolbox, cifutils
+from sasciftools.mmCif import mmcifIO
 
 
-def main(argv):
+def main(argv=sys.argv[1:]):
     HELP_MESSAGE = 'cif2fit.py <sasciffile>'
 
     sasCIFfile = cifutils.getCifExtractOpt(argv, HELP_MESSAGE)

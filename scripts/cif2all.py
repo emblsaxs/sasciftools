@@ -4,11 +4,11 @@ import os
 import sys
 import getopt
 
-from sasCIFtoolbox import export_toolbox
-from mmCif import mmcifIO
+from sasciftools.sasCIFtoolbox import export_toolbox
+from sasciftools.mmCif import mmcifIO
 
 
-def main(argv):
+def main(argv=sys.argv[1:]):
     HELP_MESSAGE = 'cif2all.py [-o <output folder>] <input file>'
 
     outputDir = ''

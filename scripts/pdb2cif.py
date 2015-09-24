@@ -3,12 +3,11 @@
 import sys
 import collections
 
-from sasCIFtoolbox import import_toolbox
-from sasCIFtoolbox import cifutils
-from mmCif import mmcifIO
+from sasciftools.sasCIFtoolbox import import_toolbox, cifutils
+from sasciftools.mmCif import mmcifIO
 
 
-def main(argv):
+def main(argv=sys.argv[1:]):
     HELP_MESSAGE = 'pdb2cif.py [-i <input_file>] [-o <output_file>] <pdbfile>'
     NO_FILENAME_PROVIDED_MESSAGE = 'ERROR: Please specify a .pdb file'
 
