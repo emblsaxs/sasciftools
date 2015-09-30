@@ -1,8 +1,27 @@
 # sasCIFtools
-**sasCIFtools** is a set of python scripts designed to process sasCIF files. The main purpose of the tools is to convert file formats traditionally used for SAS data analysis to sasCIF and *vice versa*. sasCIFtools reuqire installed [ATSAS package 2.6.1](http://www.embl-hamburg.de/biosaxs/software.html) and [python 2.7.6](https://www.python.org/downloads/).
+**sasCIFtools** is a set of python scripts designed to process sasCIF files.
+The main purpose of the tools is to convert file formats traditionally used for SAS data analysis to sasCIF and *vice versa*.
+sasCIFtools requires installed [ATSAS package 2.6.1](http://www.embl-hamburg.de/biosaxs/software.html) and [python 2.7.6](https://www.python.org/downloads/).
+
+### Installation
+sasCIFtools is still alpha-quality and is not yet available as a package through the PyPI.
+It can be installed directly from the GitHub repository using:
+
+```pip install  git+https://github.com/mkachala/sasciftools.git```
+
+To avoid messing up your Python installation if there is a problem with the setup.py file, it is recommended to install in a virtualenv:
+
+```
+virtualenv sasciftools-venv
+source sasciftools-venv/bin/activate
+pip install  git+https://github.com/mkachala/sasciftools.git
+```
 
 ## About sasCIF
-**sasCIF** is a format for storage and exchange small angle scattering (SAS) data, that includes different types of data used during data analysis and modelling. The sasCIF format is a part of Crystallographic Information Framework (CIF), which is a system of standards and specifications for the exchange and archiving for structural biology data. Single sasCIF file typically contains a scattering curve, pair-distance distribution *p*(*r*), model(s) built using the scattering data and corresponding fit(s) as well as various metainformation about sample, experimental conditions, beamline, etc. The full description of all categories used in current version of sasCIF can be found at http://mmcif.wwpdb.org/dictionaries/mmcif_sas.dic/Index/index.html
+**sasCIF** is a format for storage and exchange small angle scattering (SAS) data, that includes different types of data used during data analysis and modelling.
+The sasCIF format is a part of Crystallographic Information Framework (CIF), which is a system of standards and specifications for the exchange and archiving for structural biology data.
+A single sasCIF file typically contains a scattering curve, pair-distance distribution *p*(*r*), model(s) built using the scattering data and corresponding fit(s) as well as various metainformation about sample, experimental conditions, beamline, etc.
+The full description of all categories used in current version of sasCIF can be found at http://mmcif.wwpdb.org/dictionaries/mmcif_sas.dic/Index/index.html
 
 ### How to view models stored in sasCIF with molecular visualization software
 
@@ -34,13 +53,13 @@ There are two kinds of standalone tools to add data to sasCIF files (import tool
 All import tools have similar interface:
 
 ```
-    ./format2cif.py [-i <INPUT sasCIF FILE>] [-o <OUTPUT sasCIF FILE>] <DATAFILE>
+    [format]2cif [-i <INPUT sasCIF FILE>] [-o <OUTPUT sasCIF FILE>] <DATAFILE>
 ```
 
-* `dat2cif.py` adds scattering curve from .dat file
-* `out2cif.py` adds distance distribution function *p*(*r*) with extrapolated and regularized scattering curve from GNOM generated .out file
-* `pdb2cif.py` adds PDB model to a sasCIF file
-* `fit2cif.py` adds calculated cattering from PDB model to a sasCIF file from .fit or .fir file
+* `dat2cif` adds scattering curve from .dat file
+* `out2cif` adds distance distribution function *p*(*r*) with extrapolated and regularized scattering curve from GNOM generated .out file
+* `pdb2cif` adds PDB model to a sasCIF file
+* `fit2cif` adds calculated cattering from PDB model to a sasCIF file from .fit or .fir file
 
 
 #### Export tools
@@ -48,22 +67,25 @@ All import tools have similar interface:
 All export tools except for `cif2all` have similar interface:
 
 ```
-    ./cif2format.py <DATAFILE>
+    cif2[format] <DATAFILE>
 ```
 
-* `cif2dat.py` extracts scattering curve as three-column .dat file
-* `cif2out.py` extracts distance distribution function *p*(*r*) as standard GNOM .out file
-* `cif2pdb.py` extracts PDB model. A sasCIF file may contain several models, each in its own data block, the individual models are saved onto separate files that have more complex filename templates reflecting the correspondence between the models extracted from sasCIF and the model fits: `<sascif_filename>_FIT_<fit_id>_MODEL_<model_id>.pdb`.
-* `cif2fit.py` extracts fit to experimental data as three-column .fit file. As a sasCIF file may include several fits and the models are written into individual separate files with the following naming convention: `<sascif_filename>_FIT_<fit_id>.fit`.
-* `cif2sub.py` extracts metadata as .txt file
+* `cif2dat` extracts scattering curve as three-column .dat file
+* `cif2out` extracts distance distribution function *p*(*r*) as standard GNOM .out file
+* `cif2pdb` extracts PDB model. A sasCIF file may contain several models, each in its own data block, the individual models are saved onto separate files that have more complex filename templates reflecting the correspondence between the models extracted from sasCIF and the model fits: `<sascif_filename>_FIT_<fit_id>_MODEL_<model_id>.pdb`.
+* `cif2fit` extracts fit to experimental data as three-column .fit file. As a sasCIF file may include several fits and the models are written into individual separate files with the following naming convention: `<sascif_filename>_FIT_<fit_id>.fit`.
+* `cif2sub` extracts metadata as .txt file
 
-* `cif2all.py` extracts all types of data mentioned above. The tool has following interface:
+* `cif2all` extracts all types of data mentioned above. The tool has following interface:
 
 	```
-	./cif2all.py [-o <output folder>] <input file>
+	cif2all [-o <output folder>] <input file>
 	```
 
-	If no output folder is specified, then the the output data files are written to the current directory. **cif2all** names output files according to the file structure: if file has only one *MAIN* data block (the one with the scattering curve), then the .dat and .out files have name of the input sasCIF file. Otherwise for each *MAIN* data block separate files are created with names containing both filename and data block name. The .fit and .pdb files are named following the conventions described above for **cif2pdb** and **cif2fit** tools.
+	If no output folder is specified, then the the output data files are written to the current directory.
+	**cif2all** names output files according to the file structure: if file has only one *MAIN* data block (the one with the scattering curve), then the .dat and .out files have name of the input sasCIF file.
+	Otherwise for each *MAIN* data block separate files are created with names containing both filename and data block name.
+	The .fit and .pdb files are named following the conventions described above for **cif2pdb** and **cif2fit** tools.
 
 ###sasCIFtoolbox
 
