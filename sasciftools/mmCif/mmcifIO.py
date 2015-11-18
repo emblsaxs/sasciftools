@@ -70,9 +70,10 @@ __date__ = "$30-Jun-2012 18:23:30$"
 import os.path
 import re
 import gzip
-from mmCif import *
-from mmCif.utils import openGzip
 import collections
+
+from . import CIFWrapper, CifFile
+from .utils import openGzip
 #from com.globalphasing.startools import StarTokeniser
 
 # constants

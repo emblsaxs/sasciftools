@@ -1,10 +1,10 @@
 import os
 import collections
-
-import cifutils
-cifutils.getSaxsDocLibPath()
-import writesaxsdoc as wsd
 from subprocess import call
+
+from . import cifutils
+cifutils.getSaxsDocLibPath()
+from . import writesaxsdoc as wsd
 import saxsdocument
 
 

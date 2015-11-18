@@ -1,7 +1,7 @@
 import collections
 import re
 
-import cifutils
+from . import cifutils
 cifutils.getSaxsDocLibPath()
 import saxsdocument
 
