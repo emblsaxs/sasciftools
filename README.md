@@ -7,14 +7,14 @@ sasCIFtools requires installed [ATSAS package 2.6.1](http://www.embl-hamburg.de/
 sasCIFtools is still alpha-quality and is not yet available as a package through the PyPI.
 It can be installed directly from the GitHub repository using:
 
-```pip install  git+https://github.com/mkachala/sasciftools.git```
+```pip install  git+https://github.com/emblsaxs/sasciftools.git```
 
 To avoid messing up your Python installation if there is a problem with the setup.py file, it is recommended to install in a virtualenv:
 
 ```
 virtualenv sasciftools-venv
 source sasciftools-venv/bin/activate
-pip install  git+https://github.com/mkachala/sasciftools.git
+pip install  git+https://github.com/emblsaxs/sasciftools.git
 ```
 
 ## About sasCIF
