@@ -20,7 +20,7 @@ from setuptools import setup
 setup(
     name='sasciftools',
     description='Package for reading and writing files in sascif format',
-    url='https://github.com/mkachala/sasciftools',
+    url='https://github.com/emblsaxs/sasciftools',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
