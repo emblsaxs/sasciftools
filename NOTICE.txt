@@ -1,0 +1,6 @@
+sasCIFtools
+Copyright 2014-2015 European Molecular Biology Laboratory
+Released under the Apache License, Version 2.0 (see LICENSE.txt)
+
+Portions of this software were written by Glen van Ginkel, copyrighted by
+the Protein Data Bank in Europe, and released by them under the same licence
