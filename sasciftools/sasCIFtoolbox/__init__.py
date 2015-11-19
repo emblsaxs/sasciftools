@@ -14,4 +14,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from . import cifutils, export_toolbox, import_toolbox, writesaxsdoc
+
 __all__ = ["cifutils", "export_toolbox", "import_toolbox", "writesaxsdoc"]

@@ -14,4 +14,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from . import mmCif, sasCIFtoolbox
+
 __all__ = ['mmCif', 'sasCIFtoolbox']
