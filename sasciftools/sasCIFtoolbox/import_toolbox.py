@@ -112,7 +112,7 @@ class sasdata(object):
                 if '^2' not in chi_name:
                     try:
                         chi = float(chi) ** 2
-                    except TypeError:
+                    except Exception:
                         chi = "."
         chifile.close()
 
