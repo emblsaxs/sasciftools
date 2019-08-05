@@ -324,7 +324,7 @@ class sasCIFsource(object):
             self.getValue(subfile, 'Porod volume', sasCIFdict, data_block_id, '_sas_result', 'Porod_volume')
 
     def extractAll(self, sasCIFdict, sasCIFfile):
-        print 'Processing ' + sasCIFfile
+        print('Processing ' + sasCIFfile)
         self.extractDat(sasCIFdict, sasCIFfile)
         self.extractFit(sasCIFdict, sasCIFfile)
         self.extractOut(sasCIFdict, sasCIFfile)

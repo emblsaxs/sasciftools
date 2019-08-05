@@ -19,7 +19,7 @@ from setuptools import setup
 
 setup(
     name='sasciftools',
-    version='1.0.1',
+    version='1.0.2',
     description='Package for reading and writing files in sascif format',
     url='https://github.com/emblsaxs/sasciftools',
     classifiers=[
